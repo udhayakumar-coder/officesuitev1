@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIGPDF — Localhost PDF, Image & Converter Suite</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="brand" onclick="resetFilter()">
+        <span class="brand-badge">BIGPDF</span>
+        <span>11zon Clone</span>
+        <span class="brand-sub">LOCALHOST</span>
+      </div>
+
+      <div class="nav-links">
+        <div class="nav-item">
+          <button class="nav-btn">PDF Tools ▾</button>
+          <div class="dropdown">
+            <div class="dd-group">
+              <h4>Optimize & Merge</h4>
+              <a class="dd-link" onclick="openTool('compress-pdf')">Compress PDF</a>
+              <a class="dd-link" onclick="openTool('merge-pdf')">Merge PDF</a>
+              <a class="dd-link" onclick="openTool('merge-pdf-image')">Merge PDF & Image</a>
+              <a class="dd-link" onclick="openTool('split-pdf')">Split PDF</a>
+              <a class="dd-link" onclick="openTool('unlock-pdf')">Unlock PDF</a>
+              <a class="dd-link" onclick="openTool('protect-pdf')">Protect PDF</a>
+            </div>
+            <div class="dd-group">
+              <h4>View & Edit</h4>
+              <a class="dd-link" onclick="openTool('crop-pdf')">Crop PDF Page</a>
+              <a class="dd-link" onclick="openTool('organize-pdf')">Organize PDF</a>
+              <a class="dd-link" onclick="openTool('rotate-pdf')">Rotate PDF</a>
+              <a class="dd-link" onclick="openTool('remove-pages')">Remove PDF Pages</a>
+              <a class="dd-link" onclick="openTool('extract-pages')">Extract PDF Pages</a>
+              <a class="dd-link" onclick="openTool('extract-images')">Extract PDF Images</a>
+              <a class="dd-link" onclick="openTool('add-page-number')">Add Page Number</a>
+              <a class="dd-link" onclick="openTool('add-watermark')">Add Watermark</a>
+            </div>
+            <div class="dd-group">
+              <h4>Convert To / From PDF</h4>
+              <a class="dd-link" onclick="openTool('image-to-pdf')">Image to PDF</a>
+              <a class="dd-link" onclick="openTool('word-to-pdf')">Word to PDF</a>
+              <a class="dd-link" onclick="openTool('ppt-to-pdf')">Powerpoint to PDF</a>
+              <a class="dd-link" onclick="openTool('excel-to-pdf')">Excel to PDF</a>
+              <a class="dd-link" onclick="openTool('pdf-to-image')">PDF to Image</a>
+              <a class="dd-link" onclick="openTool('pdf-to-word')">PDF to Word</a>
+              <a class="dd-link" onclick="openTool('pdf-to-excel')">PDF to Excel</a>
+              <a class="dd-link" onclick="openTool('pdf-to-text')">PDF to Text</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-btn">Image Tools ▾</button>
+          <div class="dropdown">
+            <div class="dd-group">
+              <h4>Optimize Image</h4>
+              <a class="dd-link" onclick="openTool('compress-image')">Compress Image</a>
+              <a class="dd-link" onclick="openTool('compress-jpg')">Compress JPG</a>
+              <a class="dd-link" onclick="openTool('compress-png')">Compress PNG</a>
+              <a class="dd-link" onclick="openTool('compress-webp')">Compress WEBP</a>
+            </div>
+            <div class="dd-group">
+              <h4>Convert Image</h4>
+              <a class="dd-link" onclick="openTool('image-to-jpg')">Image to JPG</a>
+              <a class="dd-link" onclick="openTool('image-to-png')">Image to PNG</a>
+              <a class="dd-link" onclick="openTool('image-to-webp')">Image to WEBP</a>
+              <a class="dd-link" onclick="openTool('webp-to-jpeg')">WEBP to JPEG</a>
+            </div>
+            <div class="dd-group">
+              <h4>Edit Image</h4>
+              <a class="dd-link" onclick="openTool('image-crop')">Image Crop</a>
+              <a class="dd-link" onclick="openTool('image-resize')">Image Resize</a>
+              <a class="dd-link" onclick="openTool('image-rotate')">Image Rotate</a>
+              <a class="dd-link" onclick="openTool('image-crop-circle')">Crop Circle Image</a>
+              <a class="dd-link" onclick="openTool('image-merge')">Merge Photo</a>
+              <a class="dd-link" onclick="openTool('photo-signature-resize')">Photo Signature Resize</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-btn">eBook & Converter ▾</button>
+          <div class="dropdown narrow">
+            <div class="dd-group">
+              <h4>eBook & Office</h4>
+              <a class="dd-link" onclick="openTool('ebook-to-pdf')">eBook / EPUB / CBZ to PDF</a>
+              <a class="dd-link" onclick="openTool('pdf-to-ebook')">PDF to EPUB / FB2 / RTF</a>
+              <a class="dd-link" onclick="openTool('pdf-to-csv')">PDF to CSV</a>
+              <a class="dd-link" onclick="openTool('csv-to-pdf')">CSV to PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-btn">GIF & ZIP ▾</button>
+          <div class="dropdown narrow">
+            <div class="dd-group">
+              <h4>GIF & Archive</h4>
+              <a class="dd-link" onclick="openTool('images-to-gif')">Images to GIF</a>
+              <a class="dd-link" onclick="openTool('gif-to-images')">GIF to Images</a>
+              <a class="dd-link" onclick="openTool('zip-maker')">ZIP Maker</a>
+              <a class="dd-link" onclick="openTool('zip-extractor')">ZIP Extractor</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-btn">Others ▾</button>
+          <div class="dropdown narrow">
+            <div class="dd-group">
+              <h4>Utilities</h4>
+              <a class="dd-link" onclick="openTool('barcode-generator')">Barcode Generator</a>
+              <a class="dd-link" onclick="openTool('password-generator')">Password Generator</a>
+              <a class="dd-link" onclick="openTool('color-extractor')">Color Extractor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <button class="lang-toggle" id="langBtn" onclick="toggleLanguage()">தமிழ் / EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1 id="heroTitle">The Ultimate PDF Solution: Empower Your Workflow</h1>
+    <p id="heroSub">Simple, Fast & 100% Private Localhost Suite — PDF, Image, eBook, GIF, ZIP & Utility Tools running on your own machine.</p>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search 60+ tools (e.g., Compress PDF, JPG to PDF, Photo Signature, ZIP)..." oninput="renderGrid()" />
+    </div>
+    <div class="cat-tabs" id="catTabs"></div>
+  </section>
+
+  <main class="container">
+    <div id="toolsContainer"></div>
+  </main>
+
+  <footer>
+    BIGPDF 11zon Localhost Edition • 100% Offline & Private Processing on Localhost
+  </footer>
+
+  <!-- Tool Modal -->
+  <div class="modal-backdrop" id="toolModal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="tool-icon" id="modalIcon"></div>
+          <div>
+            <h2 id="modalTitle" style="font-size:1.2rem;"></h2>
+            <p id="modalDesc" style="font-size:0.84rem;color:var(--muted);"></p>
+          </div>
+        </div>
+        <button class="close-btn" onclick="closeModal()">✕</button>
+      </div>
+
+      <div id="dropzoneWrap">
+        <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+          <div style="font-size:2rem;">📂</div>
+          <p id="dropText">Drag & drop your files here, or click to browse</p>
+          <button type="button" class="select-file-btn">Select Files</button>
+          <input type="file" id="fileInput" style="display:none" onchange="handleFileSelect(this.files)" />
+        </div>
+        <div class="file-list" id="fileList"></div>
+      </div>
+
+      <div class="controls-box" id="controlsBox" style="display:none;"></div>
+
+      <button class="action-btn" id="runBtn" onclick="runCurrentTool()">Process Now</button>
+
+      <div class="result-box" id="resultBox"></div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
